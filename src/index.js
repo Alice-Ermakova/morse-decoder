@@ -37,8 +37,23 @@ const MORSE_TABLE = {
     '-----':  '0',
 };
 
-function decode(expr) {
-    // write your solution here
+function decode(expr) { 
+
+    let NewString = expr.match(/.{1,10}/g); //divide string by 10
+    let ArrNew = []; //create new array
+    console.log(NewString); 
+    
+    NewString.forEach(function(elem){
+    elem=Elem=elem.replace(/^0+/, '')
+                  .replace(/10/g, '.')
+                  .replace(/11/g, '-');
+     console.log(elem);
+     if(MORSE_TABLE[elem]){ArrNew.push(MORSE_TABLE[elem])}
+     else{ ArrNew.push(' ')}
+    });
+    console.log(ArrNew);
+    return result = ArrNew.join(''); //connect all array elements in a string
+    
 }
 
 module.exports = {
